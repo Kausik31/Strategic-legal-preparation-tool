@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Legal AI Summarizer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Strategic Legal Preparation Tool</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload and Analyze</button>
+    </form>
+
+    {% if summaries %}
+        <h2>Top Key Points Extracted:</h2>
+        <ol>
+            {% for item in summaries %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ol>
+        <h3>Page References:</h3>
+        <ul>
+            {% for ref in refs %}
+                <li>{{ ref }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="/download">
+    <button>📄 Download Summary PDF</button>
+</a>
+
+</body>
+</html>
